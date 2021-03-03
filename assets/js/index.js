@@ -14,8 +14,6 @@ $('#btuLogout').on('click',function(){
 })
 //获取用户基本信息
 function getUserInfo(){
-    
-
     $.ajax({
         method: "GET",
         url: "/my/userinfo",
@@ -41,9 +39,11 @@ function getUserInfo(){
    
 }
 function randerAvatar(user){
-var name = user.username||user.nickname
-$('#welcome').html('欢迎'+name)
+var name = user.nickname||user.username
+$('.welcome').html('欢迎'+name)
+console.log("------------")
 if(user.user_pic!==null){
+    
     //有图片渲染图片
     $('.text-avatar').hide()
     $('.layui-nav-img').attr('src',user.user_pic).show()
